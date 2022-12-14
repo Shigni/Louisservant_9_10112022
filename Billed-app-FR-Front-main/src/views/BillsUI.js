@@ -21,8 +21,10 @@ const row = (bill) => {
 
 const rows = (data) => {
   const orderDate = (a,b) => {
+    // console.log(a, b)
     const valueA = new Date(a.date)
     const valueB = new Date(b.date)
+    console.log(valueA, valueB, valueA - valueB)
     return valueA - valueB
   }
 

@@ -57,6 +57,7 @@ export const cards = (bills) => {
 /*BUG FIX : FROM Bug report - Bills = 
 Added OrderDaTe to initiate
 And ListOrderDate to order bills */
+
   const orderDate = (a,b) => {
     const valueA = new Date(a.date)
     const valueB = new Date(b.date)
@@ -163,8 +164,10 @@ export default class {
       this.counter ++
     }
 
+/*BUG FIX : FROM Bug Hunt - Dashboard = 
+Added .off().on() before the click to remove event handlers  */
     bills.forEach(bill => {
-      $(`#open-bill${bill.id}`).click((e) => this.handleEditTicket(e, bill, bills))
+      $(`#open-bill${bill.id}`).off().on().click((e) => this.handleEditTicket(e, bill, bills))
     })
 
     return bills

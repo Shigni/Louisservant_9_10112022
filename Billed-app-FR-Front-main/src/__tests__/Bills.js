@@ -41,6 +41,7 @@ describe("Given I am connected as an employee", () => {
     })
   })
 
+/*New Tests for coverage*/
   describe('When I am on Bills page but it is loading', () => {
     test('Then, Loading page should be rendered', () => {
       document.body.innerHTML = BillsUI({ loading: true })
@@ -51,7 +52,7 @@ describe("Given I am connected as an employee", () => {
   describe('When I am on Bills page but back-end send an error message', () => {
     test('Then, Error page should be rendered', () => {
       document.body.innerHTML = BillsUI({ error: 'Error' })
-      expect(screen.getAllByText('Erreur')).toBeTruthy()
+      expect(screen.getAllByText('Error')).toBeTruthy()
     })
   })
 
