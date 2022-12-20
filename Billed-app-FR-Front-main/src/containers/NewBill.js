@@ -53,12 +53,11 @@ export default class NewBill {
         this.fileUrl = fileUrl
         this.fileName = fileName
       }).catch(error => console.error(error))
+      this.document.getElementById('btn-send-bill').type = "submit"
     } else {
       alert('Veuillez choisir un fichier du type .png ou .jpg')
       this.document.getElementById('btn-send-bill').type = "button"
     }
-
-    
   }
 
   handleSubmit = (e, testBills = {}) => {
@@ -95,7 +94,7 @@ export default class NewBill {
     } else {
       bill = testBills
     }
-    w
+    
     this.updateBill(bill)
     this.onNavigate(ROUTES_PATH['Bills'])
   }

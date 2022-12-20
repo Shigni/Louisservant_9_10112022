@@ -3,6 +3,7 @@ import ErrorPage from "./ErrorPage.js"
 import LoadingPage from "./LoadingPage.js"
 
 import Actions from './Actions.js'
+import { reverseFormatDate } from "../app/format.js";
 
 const row = (bill) => {
   return (`
@@ -19,13 +20,23 @@ const row = (bill) => {
     `)
   }
 
-const rows = (data) => {
+  const rows = (data) => {
+
+    const orderDate = (a, b) => new Date(reverseFormatDate(b.date)) - new Date(reverseFormatDate(a.date))
+  
+    
+    const generateListWithOrderDate = () => {
+      data.sort(orderDate);
+      return data.map((bill) => row(bill)).join("");
+    };
+  
+    return data && data.length ? generateListWithOrderDate(data) : "";
+  }
+/*const rows = (data) => {
   const orderDate = (a,b) => {
-    // console.log(a, b)
     const valueA = new Date(a.date)
     const valueB = new Date(b.date)
-    console.log(valueA, valueB, valueA - valueB)
-    return valueA - valueB
+    return valueB - valueA
   }
 
   
@@ -35,7 +46,7 @@ const rows = (data) => {
   };
 
   return data && data.length ? generateListWithOrderDate(data) : "";
-}
+}*/
 
 
 export default ({ data: bills, loading, error }) => {

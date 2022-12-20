@@ -56,20 +56,20 @@ export const cards = (bills) => {
 
 /*BUG FIX : FROM Bug report - Bills = 
 Added OrderDaTe to initiate
-And ListOrderDate to order bills */
+And generateListWithOrderDate to order bills */
 
   const orderDate = (a,b) => {
     const valueA = new Date(a.date)
     const valueB = new Date(b.date)
-    return valueA - valueB
+    return valueB - valueA
   }
 
-  const listOrderDate = () => {
+  const generateListWithOrderDate = () => {
    bills.sort(orderDate);
     return bills.map((bill) => card(bill)).join("");
   };
 
-  return bills && bills.length ? listOrderDate(bills) : ""
+  return bills && bills.length ? generateListWithOrderDate(bills) : ""
 }
 
 
