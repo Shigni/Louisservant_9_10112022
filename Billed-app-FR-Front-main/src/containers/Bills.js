@@ -58,9 +58,7 @@ export default class {
                 status: formatStatus(doc.status),
               };
             }
-          });
-          console.log("length", bills.length);
-          console.log(bills)
+          });       
           return bills;
         });
     }

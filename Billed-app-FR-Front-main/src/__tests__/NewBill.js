@@ -154,7 +154,7 @@ describe("Given I am connected as an employee", () => {
       expect(handleSubmit).toHaveBeenCalled()
     })
 
-    /*test("fetches messages from an API and fails with 500 message error", async () => {
+    test("fetches messages from an API and fails with 500 message error", async () => {
       jest.spyOn(mockStore, 'bills')
 
       Object.defineProperty(
@@ -196,6 +196,6 @@ describe("Given I am connected as an employee", () => {
       form.addEventListener('submit', handleSubmit)   
       fireEvent.submit(form)
       await new Promise(process.nextTick)
-    })*/
+    })
   })
 });
