@@ -30,12 +30,11 @@ export default class NewBill {
     Check the extention of the file
     TO DO : Après un mauvais fichier la page ne reload pas, si remplacer par un bon fichier image upload mais ne reload pas*/
     const fileExtentionTest = () => {
-      if(fileType.toLowerCase()=='png' || fileType.toLowerCase()=='jpg'){
+      if(["png", "jpeg", "jpg"].includes(fileType))
         return true
-      }else{
+      
         return false
       }
-    }
 
     const isFileValid = fileExtentionTest()
     if(isFileValid){
@@ -55,7 +54,7 @@ export default class NewBill {
       }).catch(error => console.error(error))
       this.document.getElementById('btn-send-bill').type = "submit"
     } else {
-      alert('Veuillez choisir un fichier du type .png ou .jpg')
+      alert('Veuillez choisir un fichier du type .png, .jpg ou .jpeg')
       this.document.getElementById('btn-send-bill').type = "button"
     }
   }
