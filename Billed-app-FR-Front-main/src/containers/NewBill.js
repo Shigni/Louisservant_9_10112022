@@ -27,8 +27,8 @@ export default class NewBill {
     formData.append('email', email)
 
     /*ADDED From Bug Hunt - Bills =
-    Check the extention of the file
-    TO DO : Après un mauvais fichier la page ne reload pas, si remplacer par un bon fichier image upload mais ne reload pas*/
+    Check the extention of the file*/
+
     const fileExtentionTest = () => {
       if(["png", "jpeg", "jpg"].includes(fileType))
         return true
@@ -55,6 +55,7 @@ export default class NewBill {
       this.document.getElementById('btn-send-bill').type = "submit"
     } else {
       alert('Veuillez choisir un fichier du type .png, .jpg ou .jpeg')
+      this.document.querySelector(`input[data-testid="file"]`).value = ''
       this.document.getElementById('btn-send-bill').type = "button"
     }
   }
